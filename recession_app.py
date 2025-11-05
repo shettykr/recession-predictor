@@ -77,4 +77,4 @@ if st.button("Predict Recession Probability"):
     with st.expander("See Computed Input Features"):
         st.dataframe(data.T.style.format("{:.4f}"))
 
-st.caption("Model: XGBoost | Features: 6-month lagged macro indicators | Author: Manohar Shetty")
+st.caption("Model: XGBoost | Features: 6-month lagged macro indicators | Author: Krishang Shetty")
