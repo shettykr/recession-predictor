@@ -10,8 +10,8 @@ from xgboost import XGBClassifier
 with open("recession_xgboost_model.pkl", "rb") as f:
     model = pickle.load(f)
 
-st.title("📉 U.S. Recession Early-Warning Predictor (Full Model)")
-st.caption("Built by Manohar — powered by 50 years of FRED macro data 🎁")
+st.title("U.S. Recession Early-Warning Predictor (IESO GIFT BAG)")
+st.caption("Built by Manohar — powered by 50 years of FRED macro data!!!")
 
 st.write("""
 This predictor estimates the probability of a **U.S. recession within the next 3 months**  
@@ -27,7 +27,7 @@ inflation = st.number_input("CPI (1982-84=100):", value=320.0, step=1.0)
 spread = st.number_input("10-Year minus 2-Year Treasury Yield Spread (%):", value=-0.3, step=0.1)
 indprod = st.number_input("Industrial Production Index:", value=103.5, step=0.2)
 
-if st.button("🔮 Predict Recession Probability"):
+if st.button("Predict Recession Probability"):
     # ----------------------------
     # Create synthetic 6-month history
     # (simulate previous months slightly varying around entered values)
@@ -68,11 +68,11 @@ if st.button("🔮 Predict Recession Probability"):
     st.metric("Recession Probability (next 3 months)", f"{proba*100:.1f}%")
 
     if proba >= 0.5:
-        st.error("⚠️ High Recession Risk — Conditions critical!")
+        st.error("High Recession Risk — Conditions critical!!")
     elif proba >= 0.3:
-        st.warning("🟠 Moderate Risk — Economic slowdown likely.")
+        st.warning("Moderate Risk — Economic slowdown likely oh oh.")
     else:
-        st.success("🟢 Economy stable — No major signs of contraction.")
+        st.success("Economy stable — No major signs of contraction, woooo.")
 
     with st.expander("See Computed Input Features"):
         st.dataframe(data.T.style.format("{:.4f}"))
